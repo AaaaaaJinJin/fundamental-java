@@ -55,7 +55,7 @@ public class MainApp {
 							System.out.println("請輸入物件代號:");
 							optCase = sc.next().toUpperCase();
 							for (Case tempCase : cases) {
-								if(tempCase.id.equals(optCase)) {
+								if(tempCase.getId().equals(optCase)) {
 									tempCase.display();
 									hasFlag = true;
 								}
@@ -69,7 +69,7 @@ public class MainApp {
 							optCase = sc.next();
 
 							for (Case tempCase : cases) {
-								if(tempCase.id.equals(optCase)) {
+								if(tempCase.getId().equals(optCase)) {
 									selectedCase = tempCase;
 									hasFlag = true;
 								}
@@ -79,7 +79,7 @@ public class MainApp {
 								System.out.println("很抱歉，物件不存在!");
 								continue;
 							}
-							monthlyPrice = selectedCase.price;
+							monthlyPrice = selectedCase.getPrice();
 
 							System.out.println("請輸入押金期數(月):");
 							depositMonths = sc.nextInt();

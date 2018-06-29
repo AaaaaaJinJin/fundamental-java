@@ -1,12 +1,12 @@
 package com.rentalhelper.app;
 
 public class Case {
-	String id;
-	float area;
-	String type;
-	int price;
-	String owner;
-	String address;
+	private String id;
+	private float area;
+	private String type;
+	private int price;
+	private String owner;
+	private String address;
 	
 	/* No parameter Constructor */
 	public Case() {
