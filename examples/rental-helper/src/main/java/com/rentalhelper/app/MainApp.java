@@ -8,7 +8,7 @@ import java.util.Scanner;
 * Title: MainApp.java
 *
 *  Description: 租屋小當手，可查詢所有物件、單一物件、或計算單一物件之平均租金。
-*  Copyright: Copyright (c) 2018
+* Copyright(C)2005 by Howard, Ching, IISI
 *  @author Howard, Ching
 *  @time 2018年6月29日 上午11:19:24
 *  @version 1.0
