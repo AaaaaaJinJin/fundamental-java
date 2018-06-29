@@ -7,52 +7,52 @@ import java.util.Scanner;
 /**
 * Title: MainApp.java
 *
-*  Description: ¯²«Î¤p·í¤â¡A¥i¬d¸ß©Ò¦³ª«¥ó¡B³æ¤@ª«¥ó¡B©Î­pºâ³æ¤@ª«¥ó¤§¥­§¡¯²ª÷¡C
+*  Description: ç§Ÿå±‹å°ç•¶æ‰‹ï¼Œå¯æŸ¥è©¢æ‰€æœ‰ç‰©ä»¶ã€å–®ä¸€ç‰©ä»¶ã€æˆ–è¨ˆç®—å–®ä¸€ç‰©ä»¶ä¹‹å¹³å‡ç§Ÿé‡‘ã€‚
 *  Copyright: Copyright (c) 2018
 *  @author Howard, Ching
-*  @time 2018¦~6¤ë29¤é ¤W¤È11:19:24
+*  @time 2018å¹´6æœˆ29æ—¥ ä¸Šåˆ11:19:24
 *  @version 1.0
 */
 public class MainApp {
 	public static void main(String[] args) {
-		String optCase = ""; // ª«¥ó¥N¸¹
-		boolean hasFlag = false; // §PÂ_ª«¥ó¬O§_¦s¦b
-		Case selectedCase = new Case();  // ¿ï¾Ü¨ì¤§ª«¥ó
-		int monthlyPrice = 0; // ¨C¤ë¯²ª÷
-		int expectedMonths = 0; // ¹w­p¯²´Á
-		int actualMonths = 0; // ¹ê»Ú¯²´Á
-		int depositMonths = 0; // ©ãª÷´Á¼Æ
+		String optCase = ""; // ç‰©ä»¶ä»£è™Ÿ
+		boolean hasFlag = false; // åˆ¤æ–·ç‰©ä»¶æ˜¯å¦å­˜åœ¨
+		Case selectedCase = new Case();  // é¸æ“‡åˆ°ä¹‹ç‰©ä»¶
+		int monthlyPrice = 0; // æ¯æœˆç§Ÿé‡‘
+		int expectedMonths = 0; // é è¨ˆç§ŸæœŸ
+		int actualMonths = 0; // å¯¦éš›ç§ŸæœŸ
+		int depositMonths = 0; // æŠ¼é‡‘æœŸæ•¸
 
 //		try {
 
-			Case caseA = new Case("A", 10f, "®M©Ğ", 12000, "¤ı¥ı¥Í", "¥x¥_¥«¤å¤s°Ï¤ì¬]¸ô¤@¬qxx¸¹");
-			Case caseB = new Case("B", 8f, "®M©Ğ", 8000, "³¯¥ı¥Í", "·s¥_¥«¤¤©M°Ï¤¤©M¸ôyy¸¹");
-			Case caseC = new Case("C", 4f, "¶®©Ğ", 6000, "ªL¥ı¥Í", "·s¥_¥«·s©±°Ï¤¤¥¿¸ôaa«Ñzz¸¹");
-			Case caseD = new Case("D", 2f, "¶®©Ğ", 4500, "ªL¥ı¥Í", "¥x¥_¥«¤å¤s°Ï¤ì·s¸ô¤G¬qww¸¹");
-			Case caseE = new Case("E", 1f, "©±­±", 80000, "¶À¥ı¥Í", "¥x¥_¥«¤j¦w°Ï·s¥Í«n¸ô¤@¬qxx¸¹");
+			Case caseA = new Case("A", 10f, "å¥—æˆ¿", 12000, "ç‹å…ˆç”Ÿ", "å°åŒ—å¸‚æ–‡å±±å€æœ¨æŸµè·¯ä¸€æ®µxxè™Ÿ");
+			Case caseB = new Case("B", 8f, "å¥—æˆ¿", 8000, "é™³å…ˆç”Ÿ", "æ–°åŒ—å¸‚ä¸­å’Œå€ä¸­å’Œè·¯yyè™Ÿ");
+			Case caseC = new Case("C", 4f, "é›…æˆ¿", 6000, "æ—å…ˆç”Ÿ", "æ–°åŒ—å¸‚æ–°åº—å€ä¸­æ­£è·¯aaå··zzè™Ÿ");
+			Case caseD = new Case("D", 2f, "é›…æˆ¿", 4500, "æ—å…ˆç”Ÿ", "å°åŒ—å¸‚æ–‡å±±å€æœ¨æ–°è·¯äºŒæ®µwwè™Ÿ");
+			Case caseE = new Case("E", 1f, "åº—é¢", 80000, "é»ƒå…ˆç”Ÿ", "å°åŒ—å¸‚å¤§å®‰å€æ–°ç”Ÿå—è·¯ä¸€æ®µxxè™Ÿ");
 			Case[] cases = {caseA, caseB, caseC, caseD, caseE};
 
 			Scanner sc = new Scanner(System.in);
 
 			mainLoop:while(true) {
 				try {
-					System.out.println("Åwªï¨Ï¥Î¯²«Î¤pÀ°¤â, ½Ğ¿ï¾Ü¥\¯à:");
-					System.out.println("1. ³¯¦C©Ò¦³¥X¯²©Ğ«Î");
-					System.out.println("2. ©Ğ«Î¥X¯²¬d¸ß");
-					System.out.println("3. ¯²ª÷¸Õºâ");
-					System.out.println("4. Â÷¶}");
+					System.out.println("æ­¡è¿ä½¿ç”¨ç§Ÿå±‹å°å¹«æ‰‹, è«‹é¸æ“‡åŠŸèƒ½:");
+					System.out.println("1. é™³åˆ—æ‰€æœ‰å‡ºç§Ÿæˆ¿å±‹");
+					System.out.println("2. æˆ¿å±‹å‡ºç§ŸæŸ¥è©¢");
+					System.out.println("3. ç§Ÿé‡‘è©¦ç®—");
+					System.out.println("4. é›¢é–‹");
 
 					if(sc.hasNextInt()) {
 						int opt = sc.nextInt();
 
 						switch (opt) {
-						case 1: //¦L¥X©Ò¦³ª«¥ó
+						case 1: //å°å‡ºæ‰€æœ‰ç‰©ä»¶
 							for (Case tempCase : cases) {
 								tempCase.display();
 							}
 							break;
 						case 2:
-							System.out.println("½Ğ¿é¤Jª«¥ó¥N¸¹:");
+							System.out.println("è«‹è¼¸å…¥ç‰©ä»¶ä»£è™Ÿ:");
 							optCase = sc.next().toUpperCase();
 							for (Case tempCase : cases) {
 								if(tempCase.id.equals(optCase)) {
@@ -61,11 +61,11 @@ public class MainApp {
 								}
 							}
 							if(!hasFlag) {
-								System.out.println("«Ü©êºp¡Aª«¥ó¤£¦s¦b!");
+								System.out.println("å¾ˆæŠ±æ­‰ï¼Œç‰©ä»¶ä¸å­˜åœ¨!");
 							}
 							break;
 						case 3: 
-							System.out.println("½Ğ¿é¤Jª«¥ó¥N¸¹:");
+							System.out.println("è«‹è¼¸å…¥ç‰©ä»¶ä»£è™Ÿ:");
 							optCase = sc.next();
 
 							for (Case tempCase : cases) {
@@ -76,55 +76,55 @@ public class MainApp {
 							}
 							if(!hasFlag) 
 							{
-								System.out.println("«Ü©êºp¡Aª«¥ó¤£¦s¦b!");
+								System.out.println("å¾ˆæŠ±æ­‰ï¼Œç‰©ä»¶ä¸å­˜åœ¨!");
 								continue;
 							}
 							monthlyPrice = selectedCase.price;
 
-							System.out.println("½Ğ¿é¤J©ãª÷´Á¼Æ(¤ë):");
+							System.out.println("è«‹è¼¸å…¥æŠ¼é‡‘æœŸæ•¸(æœˆ):");
 							depositMonths = sc.nextInt();
 
 							if(depositMonths>0){
 
-								System.out.println("½Ğ¿é¤J¦X¬ù¯²´Á(¤ë):");
+								System.out.println("è«‹è¼¸å…¥åˆç´„ç§ŸæœŸ(æœˆ):");
 								expectedMonths = sc.nextInt();
 
 								if(expectedMonths > 0) {
 
-									System.out.println("½Ğ¿é¤J¹ê»Ú¯²´Á(¤ë):");
+									System.out.println("è«‹è¼¸å…¥å¯¦éš›ç§ŸæœŸ(æœˆ):");
 									actualMonths = sc.nextInt();
 
 									if(actualMonths >= 0 && actualMonths <= expectedMonths) {
 
-										// ¶i¦æ¯²ª÷¸Õºâ
+										// é€²è¡Œç§Ÿé‡‘è©¦ç®—
 										int total = actualMonths * monthlyPrice
 												+ ((actualMonths< expectedMonths) ? depositMonths * monthlyPrice : 0 );
 										float average = total / (float) actualMonths;
-										System.out.println("¯²ª÷Á`ÃB: " + total + " ¤¸");
-										System.out.println("¤ë¥­§¡¯²ª÷: " + average + " ¤¸");
+										System.out.println("ç§Ÿé‡‘ç¸½é¡: " + total + " å…ƒ");
+										System.out.println("æœˆå¹³å‡ç§Ÿé‡‘: " + average + " å…ƒ");
 
 									}else {
-										System.out.println("¸ê®ÆµL®Ä¡i¹ê»Ú¯²´Á¥²¶·¤¶©ó0¨ì¦X¬ù¯²´Á¤§¶¡¡j");
+										System.out.println("è³‡æ–™ç„¡æ•ˆã€å¯¦éš›ç§ŸæœŸå¿…é ˆä»‹æ–¼0åˆ°åˆç´„ç§ŸæœŸä¹‹é–“ã€‘");
 									}
 								}else {
-									System.out.println("¸ê®ÆµL®Ä¡i¦X¬ù¯²´Á¥²¶·¤j©ó0¡j");
+									System.out.println("è³‡æ–™ç„¡æ•ˆã€åˆç´„ç§ŸæœŸå¿…é ˆå¤§æ–¼0ã€‘");
 								}
 							}else {
-								System.out.println("¸ê®ÆµL®Ä¡i©ãª÷´Á¼Æ¥²¶·¤j©ó0¡j");
+								System.out.println("è³‡æ–™ç„¡æ•ˆã€æŠ¼é‡‘æœŸæ•¸å¿…é ˆå¤§æ–¼0ã€‘");
 							}
 							break;
 						case 4:
-							System.out.println(">>>>¡iµ{¦¡µ²§ô¡j......>>>>>");
+							System.out.println(">>>>ã€ç¨‹å¼çµæŸã€‘......>>>>>");
 							break mainLoop;				
 						default:
 							break;
 						}
 					}else{
-						sc.next(); //§âsc«ü¼Ğ²¾°Ê¡AÁ×§KµL½a°j°é
+						sc.next(); //æŠŠscæŒ‡æ¨™ç§»å‹•ï¼Œé¿å…ç„¡çª®è¿´åœˆ
 					}
 					System.out.println("-------------------------------------");
 				}catch(InputMismatchException imex) {
-					System.out.println("¸ê®ÆµL®Ä¡i½Ğ¿é¤J¼Æ¦r¡j");
+					System.out.println("è³‡æ–™ç„¡æ•ˆã€è«‹è¼¸å…¥æ•¸å­—ã€‘");
 					continue;				
 				}
 			} // End of mainLoop

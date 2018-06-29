@@ -22,9 +22,9 @@ public class Case {
 		this.address = address;
 	}
 	public void display() {
-		System.out.println(this.id + "ª«¥ó - " + this.area + "©W - " + this.type  
-				+ " - ¨C¤ë" + this.price + "¤¸ - «Î¥D:" + this.owner  
-				+ " - ¦a§}:" + this.address);
+		System.out.println(this.id + "ç‰©ä»¶ - " + this.area + "åª - " + this.type  
+				+ " - æ¯æœˆ" + this.price + "å…ƒ - å±‹ä¸»:" + this.owner  
+				+ " - åœ°å€:" + this.address);
 	}
 	
 	public String getId() {
